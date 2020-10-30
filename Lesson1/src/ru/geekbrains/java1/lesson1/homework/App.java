@@ -1,7 +1,5 @@
 package ru.geekbrains.java1.lesson1.homework;
 
-import javax.sound.midi.Soundbank;
-
 public class App
 {
     // 1. Создать пустой проект в IntelliJ IDEA и прописать метод main();
