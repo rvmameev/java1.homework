@@ -24,6 +24,17 @@ public class App
 
     public static void main(String[] args)
     {
+//        1. Полностью разобраться с кодом, попробовать переписать с нуля, стараясь не подглядывать в методичку;
+//
+//        2. Переделать проверку победы, чтобы она не была реализована просто набором условий, например,
+//        с использованием циклов.
+//
+//        3. * Попробовать переписать логику проверки победы, чтобы она работала для поля 5х5 и победного ряда 4
+//        (по вертикали/горизонтали/диагонали). Очень желательно не делать это просто набором условий для каждой
+//        из возможных ситуаций;
+//
+//        4. *** Доработать искусственный интеллект, чтобы он мог блокировать ходы игрока.
+
         playTicTacToe();
     }
 
@@ -119,16 +130,16 @@ public class App
     {
         System.out.print("\\");
 
-        for (int i = 0; i < map.length; i++)
+        for (int i = 0; i < mapSize; i++)
             System.out.print(" " + (i + 1));
 
         System.out.println();
 
-        for (int i = 0; i < map.length; i++)
+        for (int i = 0; i < mapSize; i++)
         {
             System.out.print(i + 1);
 
-            for (int j = 0; j < map.length; j++)
+            for (int j = 0; j < mapSize; j++)
                 System.out.print(" " + map[i][j]);
 
             System.out.println();
@@ -202,8 +213,8 @@ public class App
 
         int counter = -1;
 
-        for (int i = 0; i < map.length; i++)
-            for (int j = 0; j < map.length; j++)
+        for (int i = 0; i < mapSize; i++)
+            for (int j = 0; j < mapSize; j++)
             {
                 if (map[i][j] == DOT_EMPTY)
                     counter++;
@@ -333,10 +344,10 @@ public class App
 
     static boolean isValidMapCell(int x, int y)
     {
-        if (x < 0 || x >= map.length)
+        if (x < 0 || x >= mapSize)
             return false;
 
-        if (y < 0 || y >= map.length)
+        if (y < 0 || y >= mapSize)
             return false;
 
         return map[y][x] == DOT_EMPTY;
@@ -346,8 +357,8 @@ public class App
     {
         int emptyCellsCount = 0;
 
-        for (int i = 0; i < map.length; i++)
-            for (int j = 0; j < map.length; j++)
+        for (int i = 0; i < mapSize; i++)
+            for (int j = 0; j < mapSize; j++)
                 if (map[i][j] == DOT_EMPTY)
                     emptyCellsCount++;
 
@@ -389,22 +400,22 @@ public class App
     {
         boolean isWin;
 
-        for (int i = 0; i < map.length; i++)
+        for (int i = 0; i < mapSize; i++)
         {
             isWin = true;
 
-            for (int j = 0; j < map.length; j++)
+            for (int j = 0; j < mapSize; j++)
                 isWin = isWin && (map[i][j] == dot);
 
             if (isWin)
                 return true;
         }
 
-        for (int i = 0; i < map.length; i++)
+        for (int i = 0; i < mapSize; i++)
         {
             isWin = true;
 
-            for (int j = 0; j < map.length; j++)
+            for (int j = 0; j < mapSize; j++)
                 isWin = isWin && (map[j][i] == dot);
 
             if (isWin)
@@ -413,7 +424,7 @@ public class App
 
         isWin = true;
 
-        for (int i = 0; i < map.length; i++)
+        for (int i = 0; i < mapSize; i++)
             isWin = isWin && (map[i][i] == dot);
 
         if (isWin)
@@ -421,8 +432,8 @@ public class App
 
         isWin = true;
 
-        for (int i = 0; i < map.length; i++)
-            isWin = isWin && (map[i][map.length - 1 - i] == dot);
+        for (int i = 0; i < mapSize; i++)
+            isWin = isWin && (map[i][mapSize - 1 - i] == dot);
 
         if (isWin)
             return true;
@@ -433,8 +444,6 @@ public class App
     // проверка победы, общая функция для всех размеров и количества фишек для победы
     static boolean isWin(char dot)
     {
-        int mapSize = map.length;
-
         boolean isWin;
 
         for (int i = 0; i < mapSize; i++)

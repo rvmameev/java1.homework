@@ -76,7 +76,7 @@ public class Test
 
     static void test_isWin(int mapSize, int winLength)
     {
-        System.out.println("Test isWin, mapSize = " + mapSize + ", winLength = " + winLength);
+        System.out.println("\nTest isWin, mapSize = " + mapSize + ", winLength = " + winLength);
 
         App.mapSize = mapSize;
 
