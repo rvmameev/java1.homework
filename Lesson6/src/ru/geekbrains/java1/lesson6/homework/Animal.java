@@ -49,11 +49,6 @@ abstract class Animal
         return canJump;
     }
 
-    String getName()
-    {
-        return name;
-    }
-
     static int getCountObject()
     {
         return countObject;
