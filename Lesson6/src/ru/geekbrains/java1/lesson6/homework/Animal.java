@@ -19,6 +19,7 @@ abstract class Animal
         countObject++;
     }
 
+    // возврат boolean для внешнего анализа результата работы метода
     boolean run(double distance)
     {
         boolean canRun = distance < maxRunDistance;
@@ -29,6 +30,7 @@ abstract class Animal
         return canRun;
     }
 
+    // возврат boolean для внешнего анализа результата работы метода
     boolean swim(double distance)
     {
         boolean canSwim = distance < maxSwimDistance;
@@ -39,6 +41,7 @@ abstract class Animal
         return canSwim;
     }
 
+    // возврат boolean для внешнего анализа результата работы метода
     boolean jump(double height)
     {
         boolean canJump = height < maxJumpHeight;
