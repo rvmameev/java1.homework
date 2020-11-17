@@ -50,6 +50,8 @@ public class App
             cats[i].eat(plate);
 
             System.out.println(cats[i]);
+
+            plate.info();
         }
     }
 }
