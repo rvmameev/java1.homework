@@ -26,6 +26,9 @@ public class App
         cat.eat(plate);
         plate.info();
 
+        cat.eat(plate);
+        plate.info();
+
         System.out.println("\nКоты и тарелка:");
 
         plate = new Plate(4);

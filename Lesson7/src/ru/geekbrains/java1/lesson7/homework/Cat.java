@@ -17,16 +17,27 @@ public class Cat
 
     public void eat(Plate plate)
     {
-        isFull = plate.decreaseFood(appetite);
-
         if (isFull)
         {
+            System.out.println(name + " уже сыт");
+
+            return;
+        }
+
+        boolean hasAvailableFood = plate.hasAvailableFood(appetite);
+
+        if (hasAvailableFood)
+        {
+            plate.decreaseFood(appetite);
+
             System.out.println(name + " поел");
         }
         else
         {
-            System.out.println(name + " не смог поесть");
+            System.out.println(name + " не смог поесть, мало еды в тарелке");
         }
+
+        isFull = hasAvailableFood;
     }
 
     @Override

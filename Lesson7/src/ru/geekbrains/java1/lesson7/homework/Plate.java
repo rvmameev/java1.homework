@@ -14,16 +14,17 @@ public class Plate
         food += value;
     }
 
-    public boolean decreaseFood(int value)
+    public void decreaseFood(int value)
     {
-        if (food > value)
+        if (hasAvailableFood(value))
         {
             food -= value;
-
-            return true;
         }
+    }
 
-        return false;
+    public boolean hasAvailableFood(int appetite)
+    {
+        return food >= appetite;
     }
 
     public void info()
